@@ -28,6 +28,20 @@ exports.getAllemployeeById=(req,res)=>{
     })
 }
 
+exports.getAllemployeeBySalaryFilter=(req,res)=>{
+    let data = req.params;
+    employsalary.getAllemployeeBySalaryFilter(data,(err,data)=>{
+        if(err){
+            res.send(err);
+            // console.log(err);
+        }
+        else{
+            res.send(data);
+            // console.log(data);
+        }
+    })
+}
+
 exports.post=(req,res)=>{
     let data = req.body;
     console.log(data);

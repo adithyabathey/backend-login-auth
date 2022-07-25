@@ -6,6 +6,8 @@ module.exports = (app) =>{
     app.get('/getemployees/:id',Employ.getAllemployeeById);
     app.post('/post',Employ.post);
     app.delete('/delEmployee/:id',Employ.deleteEmployee);
-    app.delete('/updtEmployee/:id',Employ.updtEmployee);
+    app.put('/updtEmployee',Employ.updtEmployee);
+    //salary filter
+    app.get('/getemployee/:sal',Employ.getAllemployeeBySalaryFilter);
 
 }

@@ -35,6 +35,19 @@ employee.getAllemployeeById = (data , result) =>{
     }});
 };
 
+employee.getAllemployeeBySalaryFilter = (data , result) =>{
+    var getQuery = `SELECT * FROM Employee where Salary > ${data.sal}`
+    connection.query(getQuery,(err,res)=>{
+        if(err){
+            // console.log(err);
+            result(null , err);
+        }
+        else{
+        //  console.log(res);
+            result(null , res);
+    }});
+};
+
 employee.post = (data , result) =>{
     var postQuery = `INSERT INTO employee set?`
     connection.query(postQuery,data,(err,res)=>{
@@ -61,9 +74,9 @@ employee.deleteEmployee = (data , result) =>{
     }});
 };
 
-employee.update = (data , result) =>{
-    var updateQuery = `UPDATE INTO employee set?`
-    connection.query(postQuery,data,(err,res)=>{
+employee.updtEmployee = (data , result) =>{
+    var updateQuery = `update employee set name = '${data.name}' , EmpCode = '${data.empCode}' , Salary='${data.salary}' Where EmpID= ${data.id}`
+    connection.query(updateQuery,data,(err,res)=>{
         if(err){
         // console.log(err);
             result(null , err);
