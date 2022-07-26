@@ -5,7 +5,8 @@ const employee = function(emp){
     this.EmpID = emp.EmpID;
     this.Name = emp.Name;
     this.EmpCode = emp.EmpCode;
-    this.Salary = emp.Salary; 
+    this.Salary = emp.Salary;
+    this.password = emp.password; 
 
 } 
 
@@ -75,7 +76,7 @@ employee.deleteEmployee = (data , result) =>{
 };
 
 employee.updtEmployee = (data , result) =>{
-    var updateQuery = `update employee set name = '${data.name}' , EmpCode = '${data.empCode}' , Salary='${data.salary}' Where EmpID= ${data.id}`
+    var updateQuery = `update employee set name = '${data.name}' , EmpCode = '${data.empCode}' , Salary='${data.salary}' , password = '${data.password}' Where EmpID= ${data.id}`
     connection.query(updateQuery,data,(err,res)=>{
         if(err){
         // console.log(err);
